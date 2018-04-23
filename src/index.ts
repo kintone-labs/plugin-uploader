@@ -6,7 +6,7 @@ async function launchBrowser(proxy?: string): Promise<Browser> {
   return await puppeteer.launch({ args });
 }
 
-async function init(
+async function readyForUpload(
   browser: Browser,
   domain: string,
   userName: string,
@@ -67,7 +67,7 @@ export async function run(
   let browser = await launchBrowser(options.proxyServer);
   let page: Page;
   try {
-    page = await init(browser, domain, userName, password);
+    page = await readyForUpload(browser, domain, userName, password);
     await upload(browser, page, pluginPath);
     if (options.watch) {
       let uploading = false;
@@ -83,7 +83,7 @@ export async function run(
           console.log('An error occured, retry with a new browser');
           await browser.close();
           browser = await launchBrowser(options.proxyServer);
-          page = await init(browser, domain, userName, password);
+          page = await readyForUpload(browser, domain, userName, password);
           await upload(browser, page, pluginPath);
         } finally {
           uploading = false;
