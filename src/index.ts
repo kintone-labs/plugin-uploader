@@ -23,7 +23,7 @@ async function readyForUpload(
   await page.type(".form-username-slash > input.form-text", userName);
   await page.type(".form-password-slash > input.form-text", password);
   await page.click(".login-button");
-  await page.waitForNavigation();
+  await page.waitForNavigation({ timeout: 10000 });
 
   const pluginUrl = `${kintoneUrl}k/admin/system/plugin/`;
   console.log(`Navigate to ${pluginUrl}`);
