@@ -83,7 +83,7 @@ const {
 const options = proxy ? { watch, lang, proxyServer: proxy } : { watch, lang };
 
 if (!pluginPath) {
-  console.error(getMessage(lang, "Error_requiredZipPath"));
+  console.error(getMessage(lang, "error.required.zippath"));
   cli.showHelp();
   process.exit(1);
 }

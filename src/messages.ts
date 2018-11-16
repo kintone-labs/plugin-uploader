@@ -6,47 +6,47 @@ type LangMap = { [lang in Lang]: string };
 type MessageMap = { [key in keyof typeof messages]: LangMap };
 
 const messages = {
-  Q_Domain: {
+  "question.domain": {
     en: "Input your Kintone subdomain (example.cybozu.com):",
     ja: "kintoneのドメインを入力してください (example.cybozu.com):"
   },
-  Q_UserName: {
+  "question.username": {
     en: "Input your username:",
     ja: "ログイン名を入力してください:"
   },
-  Q_Password: {
+  "question.password": {
     en: "Input your password:",
     ja: "パスワードを入力してください:"
   },
-  Error: {
+  "error.others": {
     en: "An error occured",
     ja: "エラーが発生しました"
   },
-  Error_retry: {
+  "error.retrying": {
     en: "An error occured, retry with a new browser",
     ja: "エラーが発生しました。リトライします"
   },
-  Error_requiredZipPath: {
+  "error.required.zippath": {
     en: "Please specify the path of the Kintone plug-in zip file",
     ja: "kintoneプラグインのzipへのパスを指定してください"
   },
-  Error_failedLogin: {
+  "error.failed.login": {
     en: "Error: Login failed, please confirm your username and password",
     ja:
       "エラー: kintoneへのログインに失敗しました。ログイン名とパスワードを確認してください"
   },
-  Error_cannotOpenLogin: {
+  "error.invalid.domain": {
     en:
       "Error: Cannot find a login form on the specified page, please confirm the subdomain",
     ja:
       "エラー: 指定されたページにログインフォームが見つかりませんでした。ドメインを確認してください"
   },
-  Error_adminPrivilege: {
+  "error.required.admin.privilege": {
     en:
       "Error: Cannot navigate to the plug-ins page, please retry with an account with administrator privileges",
     ja: "エラー: kintone管理者権限のあるユーザーで実行してください"
   },
-  Uploaded: {
+  "complete.uploading": {
     en: "has been uploaded!",
     ja: "をアップロードしました!"
   }

@@ -29,7 +29,7 @@ async function readyForUpload(
   try {
     await page.waitFor(".form-username-slash", { timeout: TIMEOUT_MS });
   } catch (e) {
-    console.log(chalk.red(m("Error_cannotOpenLogin")));
+    console.log(chalk.red(m("error.invalid.domain")));
     process.exit(1);
   }
   console.log("Trying to log in...");
@@ -42,7 +42,7 @@ async function readyForUpload(
       waitUntil: "domcontentloaded"
     });
   } catch (e) {
-    console.log(chalk.red(m("Error_failedLogin")));
+    console.log(chalk.red(m("error.failed.login")));
     process.exit(1);
   }
 
@@ -54,7 +54,7 @@ async function readyForUpload(
       timeout: TIMEOUT_MS
     });
   } catch (e) {
-    console.log(chalk.red(m("Error_adminPrivilege")));
+    console.log(chalk.red(m("error.required.admin.privilege")));
     process.exit(1);
   }
   return page;
@@ -79,7 +79,7 @@ async function upload(
     hidden: true,
     timeout: TIMEOUT_MS
   });
-  console.log(`${pluginPath} ${m("Uploaded")}`);
+  console.log(`${pluginPath} ${m("complete.uploading")}`);
 }
 
 interface Option {
@@ -113,7 +113,7 @@ export async function run(
           await upload(page, pluginPath, lang);
         } catch (e) {
           console.log(e);
-          console.log(m("Error_retry"));
+          console.log(m("error.retrying"));
           await browser.close();
           browser = await launchBrowser(options.proxyServer);
           page = await readyForUpload(
@@ -132,7 +132,7 @@ export async function run(
       await browser.close();
     }
   } catch (e) {
-    console.error(m("Error"), e);
+    console.error(m("error.others"), e);
     await browser.close();
   }
 }
