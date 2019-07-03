@@ -14,7 +14,9 @@
     "build": "tsc",
     "lint": "tslint -c tslint.json src/**/*.ts",
     "release": "run-s build lint && standard-version",
-    "release:dryrun": "standard-version --dry-run"
+    "release:dryrun": "standard-version --dry-run",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "files": [
     "bin",
@@ -33,7 +35,8 @@
     "inquirer": "^6.3.1",
     "meow": "^5.0.0",
     "os-locale": "^3.1.0",
-    "puppeteer": "^1.14.0"
+    "puppeteer": "^1.14.0",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "@types/inquirer": "6.0.3",
@@ -45,5 +48,6 @@
     "tslint": "^5.15.0",
     "tslint-plugin-prettier": "^2.0.1",
     "typescript": "^3.4.5"
-  }
+  },
+  "snyk": true
 }
