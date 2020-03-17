@@ -13,7 +13,7 @@ interface BasicAuth {
   password: string;
 }
 
-async function launchBrowser(proxy: string | null): Promise<Browser> {
+function launchBrowser(proxy: string | null): Promise<Browser> {
   const args = proxy ? [`--proxy-server=${proxy}`] : [];
   return puppeteer.launch({ args });
 }
