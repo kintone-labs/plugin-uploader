@@ -5,7 +5,7 @@ import puppeteer, { Browser, Page } from "puppeteer";
 import { Lang } from "./lang";
 import { getBoundMessage } from "./messages";
 
-const TIMEOUT_MS = 5000;
+const TIMEOUT_MS = 10000;
 const UPLOAD_TIMEOUT_MS = 60000;
 
 interface BasicAuth {
